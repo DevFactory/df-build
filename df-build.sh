@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 echo "Build is done by now. Copying dependencies..."
-mvn dependency:copy-dependencies -DincludeScope=runtime,provided || { echo "Error: maven dependency:copy-dependencies failed"; exit 1; }
+mvn dependency:copy-dependencies -DincludeScope=runtime || { echo "Error: maven dependency:copy-dependencies -DincludeScope=runtime failed"; exit 1; }
+mvn dependency:copy-dependencies -DincludeScope=provided || { echo "Error: maven dependency:copy-dependencies -DincludeScope=provided failed"; exit 1; }
 echo "Cleaning up existing zip if any..."
 rm -f libs.zip || { echo "Error: Cleaning lib zip"; exit 1; }
 rm -f build.zip || { echo "Error: Cleaning binaries zip"; exit 1; }
