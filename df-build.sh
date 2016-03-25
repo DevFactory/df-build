@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 echo "Build is done by now. Copying dependencies..."
 mvn dependency:copy-dependencies -DincludeScope=runtime || { echo "Error: maven dependency:copy-dependencies -DincludeScope=runtime failed"; exit 1; }
 mvn dependency:copy-dependencies -DincludeScope=provided || { echo "Error: maven dependency:copy-dependencies -DincludeScope=provided failed"; exit 1; }
